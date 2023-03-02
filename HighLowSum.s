@@ -61,9 +61,7 @@ add $t3, $t3, $t2
 
 ### finding the smallest value here ###
       
-# assume input 1 is smallest
-
-move $t4, $t0
+move $t4, $t0			# Assume input 1 is smallest
 
 ### if input 2 < than the current smallest ### 
 
@@ -72,18 +70,18 @@ j continue
 
 check_1:
       
-move $t4, $t1			# make input 2 the new smallest
+move $t4, $t1			# Make input 2 the new smallest
 
 continue:
 
-### if input 3 < than the current smallest ### 
+### If input 3 < than the current smallest ### 
 
 bgt $t4, $t2, check_2
 j continue_2
 
 check_2:
 
-move $t4, $t2			# make input 3 the new smallest
+move $t4, $t2			# Make input 3 the new smallest
 
 continue_2:
 
@@ -93,21 +91,26 @@ continue_2:
 sub $t3, $t3, $t4 
 
 ### Need to check for largest ###
-move $t5, $t0
 
-ble $t5, $t1, largecompare
+move $t5, $t0			# Assume input 1 is largest
+
+### If input 2 > than the current largest ### 
+
+ble $t5, $t1, largeccheck
 j largecontinue
 
-largecompare:
-move $t5, $t1
+largecheck:
+move $t5, $t1			# Make input 2 largest
 
 largecontinue:
+
+### If input 3 > than the current largest ### 
 
 ble $t5, $t2, lastcompare
 j exit
 
 lastcompare: 
-move $t5, $t2
+move $t5, $t2			# Make input 3 largest
 
 exit:
 
@@ -119,19 +122,19 @@ li $v0, 1				# Reporting Sum
 move $a0, $t3
 syscall
 
-li $v0, 4				#prompting user on smallest value entered
+li $v0, 4				# Prompting user on smallest value entered
 la $a0, str6
 syscall
 
-li $v0, 1				#reporting smallest value
+li $v0, 1				# Reporting smallest value
 move $a0, $t4
 syscall
 
-li $v0, 4				#prompting user for largest value entered
+li $v0, 4				# Prompting user for largest value entered
 la $a0, str7
 syscall
 
-li $v0, 1				#reporting largest value
+li $v0, 1				# Reporting largest value
 move $a0, $t5
 syscall
 
