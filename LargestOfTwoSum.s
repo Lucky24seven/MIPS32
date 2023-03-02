@@ -3,7 +3,7 @@
 # Description: This program will take 3 user inputs. After the inputs are entered
 # the program will sum the two largest values.
 # Input: Intergers input by user
-# Output: Integer sum, largest, and smallest values entered.
+# Output: Integer sum of the two largest values.
 
 ##### Data Segment #####
 
@@ -56,7 +56,7 @@ add $t3, $zero, $zero		# Clearing register value
 add $t3, $t0, $t1
 add $t3, $t3, $t2
 
-      # finding the smallest
+# finding the smallest
       
 # assume input 1 is smallest
 
