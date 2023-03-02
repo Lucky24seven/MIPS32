@@ -64,10 +64,10 @@ move $t4, $t0
 
 # if input 2 < than the current smallest 
 
-bgt $t4, $t1, one
-b continue
+bgt $t4, $t1, check_1
+j continue
 
-one:
+check_1:
       
 move $t4, $t1			# make input 2 the new smallest
 
@@ -75,10 +75,10 @@ continue:
 
 # if input 3 < than the current smallest 
 
-bgt $t4, $t2, two
-b continue_2
+bgt $t4, $t2, check_2
+j continue_2
 
-two:
+check_2:
 
 move $t4, $t2			# make input 3 the new smallest
 
@@ -95,22 +95,6 @@ syscall
 li $v0, 1
 move $a0, $t3
 syscall
-
-#li $v0, 4				# Prompting user on smallest value entered
-#la $a0, str6
-#syscall
-
-#li $v0, 1				# Reporting smallest value
-#move $a0, $t4
-#syscall
-
-#li $v0, 4				# Prompting user for largest value entered
-#la $a0, str7
-#syscall
-
-#li $v0, 1				# Reporting largest value
-#move $a0, $t1
-#syscall
 
 li $v0, 10				# System call to end the program
 syscall
