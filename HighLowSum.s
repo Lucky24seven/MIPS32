@@ -1,4 +1,4 @@
-# Title: Homework6 Problem 1		Filename: LargestOfTwoSum.s
+# Title: Homework6 Problem 1		Filename: HighLowSum.s
 # Author: William Lawecki		Date: 2/28/2023
 # Description: This program will take 3 user inputs. After the inputs are entered
 # the program will sum all 3 values, and determine the largest and smallest
