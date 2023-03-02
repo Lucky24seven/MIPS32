@@ -10,7 +10,7 @@
 
 .data
 
-str1: .asciiz ""Welcome to the High Low Sum program.  Please enter 3 integer values.\n"
+str1: .asciiz "Welcome to the High Low Sum program.  Please enter 3 integer values.\n"
 str2: .asciiz "\nPlease enter the first number: "
 str3: .asciiz "\nPlease enter the second number: "
 str4: .asciiz "\nEnter the last number, please: "
@@ -93,7 +93,23 @@ continue_2:
 sub $t3, $t3, $t4 
 
 ### Need to check for largest ###
+move $t5, $t0
 
+ble $t5, $t1, largecompare
+j largecontinue
+
+largecompare:
+move $t5, $t1
+
+largecontinue:
+
+ble $t5, $t2, lastcompare
+j exit
+
+lastcompare: 
+move $t5, $t2
+
+exit:
 
 li $v0, 4				# System call to report our User's sum
 la $a0, str5
@@ -116,7 +132,7 @@ la $a0, str7
 syscall
 
 li $v0, 1				#reporting largest value
-move $a0, $s2
+move $a0, $t5
 syscall
 
 li $v0, 10				# System call to end the program
